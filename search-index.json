@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Welcome",
+    "url": "index.html",
+    "excerpt": "Unofficial knowledge base for Retail Tycoon 2"
+  },
+  {
+    "title": "Vehicles",
+    "url": "pages/vehicles.html",
+    "excerpt": "Vehicles are used to transport goods from the loading bay to your store."
+  },
+  {
+    "title": "Store Layouts",
+    "url": "pages/store-layouts.html",
+    "excerpt": "Store layouts and recommended shelf arrangements."
+  }
+]
