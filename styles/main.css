@@ -10,7 +10,7 @@ body{
   margin:0;
   background:var(--bg);
   color:var(--muted);
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: "Sansation", system-ui, sans-serif;
 }
 
 /*-----HEADER----------------------------------------------------------------------------------------------------*/
