@@ -109,3 +109,14 @@ body{
 .sr-list .sr-item{display:block;padding:10px;border-bottom:1px solid #111;color:var(--muted);text-decoration:none}
 .sr-list .sr-item h4{margin:0;color:#fff}
 .sr-list .sr-item p{margin:6px 0 0 0;font-size:0.9rem;color:#cfcfcf}
+
+a {
+  color: #47a8ff; /* wiki-like blue */
+  text-decoration: none;
+  border-bottom: 1px dotted #47a8ff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
