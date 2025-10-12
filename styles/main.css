@@ -9,6 +9,7 @@
 body{
   margin:0;
   background:var(--bg);
+  color: white;
   font-family: "Sansation", system-ui, sans-serif;
 }
 
@@ -29,7 +30,7 @@ body{
 .site-header .brand{
   display: flex;
   align-items: left;
-  gap: 12px
+  gap: 12px;
   width: 33vw;
   font-size: 25px;
 }
@@ -38,9 +39,9 @@ body{
   padding:8px 12px;
   border-radius:6px;
   border:1px solid #222;
-  background:#0f0f0f;
-  color:var(--muted);
-  min-width:220px;
+  background: black;
+  color: var(--accent);
+  min-width: 220px;
 }
 
 /*-----BODY------------------------------------------------------------------------------------------------------*/
