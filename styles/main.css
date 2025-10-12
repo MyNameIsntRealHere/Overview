@@ -30,7 +30,7 @@ body{
   display: flex;
   align-items: left;
   gap: 12px
-  with: 33vw;
+  width: 33vw;
   font-size: 25px;
 }
 
