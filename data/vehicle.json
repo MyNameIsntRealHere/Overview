@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Small Van",
+    "capacity": 300,
+    "speed": 60,
+    "cost": 10000,
+    "driver": "Standard"
+  },
+  {
+    "name": "Large Truck",
+    "capacity": 800,
+    "speed": 45,
+    "cost": 30000,
+    "driver": "Experienced"
+  },
+  {
+    "name": "Pickup",
+    "capacity": 500,
+    "speed": 70,
+    "cost": 15000,
+    "driver": "Standard"
+  }
+]
