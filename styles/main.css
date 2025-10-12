@@ -9,7 +9,6 @@
 body{
   margin:0;
   background:var(--bg);
-  color: #FF0101);
   font-family: "Sansation", system-ui, sans-serif;
 }
 
@@ -19,7 +18,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: normal;
-  padding: 12px 20px;
+  padding: 7px 20px;
   background: #000000;
   border-bottom: 4px solid var(--accent);
   position: sticky;
@@ -32,6 +31,7 @@ body{
   align-items: left;
   gap: 12px
   with: 33vw;
+  font-size: 25px;
 }
 
 .site-header input{
