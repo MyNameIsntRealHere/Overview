@@ -1,17 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&display=swap');
 
 :root{
-  --bg: #1a1a1a;
-  --panel: #141414;
-  --accent: #00aaff;
-  --muted: #cfcfcf;
+  --bg: #222020;
+  --accent: #009DFF;
 }
 
 *{box-sizing:border-box}
 body{
   margin:0;
   background:var(--bg);
-  color:var(--muted);
+  color: #FF0101);
   font-family: "Sansation", system-ui, sans-serif;
 }
 
@@ -22,7 +20,7 @@ body{
   align-items: center;
   justify-content: space-between;
   padding: 12px 20px;
-  background: #0f0f0f;
+  background: #000000;
   border-bottom: 4px solid var(--accent);
   position: sticky;
   top: 0;
@@ -44,16 +42,20 @@ body{
   min-width:220px;
 }
 
+/*-----BODY------------------------------------------------------------------------------------------------------*/
+
 .page-body{
   display:flex;
   min-height:calc(100vh - 64px)
 }
 
+/*-----SIDEBAR---------------------------------------------------------------------------------------------------*/
+
 .site-sidebar{
-  width:260px;
-  padding:28px;
-  background:var(--panel);
-  border-right:2px solid #0e0e0e;
+  width: 260px;
+  padding: 28px;
+  background: var(--bg);
+  border-right: 2px solid #000000;
 }
 
 .site-sidebar h3{
