@@ -16,6 +16,9 @@
       <h1>WELCOME!</h1>
       <p class="lead">To the unofficial knowledge base of Retail Tycoon 2. Start searching for topics or browse the sidebar.</p>
 
+      <h2>Vehicle Table (Test)</h2>
+      <div id="vehiclesTable">Loading...</div>
+
       <div class="home-buttons">
         <a href="#" id="open-search" class="big-button">Search …</a>
         <a href="pages/faq.html" class="big-button">FAQ</a>
@@ -31,5 +34,10 @@
 
   <script src="scripts/include.js"></script>
   <script src="scripts/search.js"></script>
+  <script src="scripts/table-generator.js"></script>
+  <script>
+    createTableFromJSON("data/vehicles.json", "vehiclesTable");
+  </script>
+
 </body>
 </html>
