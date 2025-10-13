@@ -1,69 +1,79 @@
-async function createTableFromJSON(jsonPath, containerId, options = {}) {
+async function createTableFromJSON(jsonPath, targetId, options = {}) {
+  const target = document.getElementById(targetId);
+  if (!target) return;
+
   try {
     const res = await fetch(jsonPath);
+    if (!res.ok) throw new Error(`Failed to load ${jsonPath}`);
     const data = await res.json();
 
-    if (!data.length) {
-      document.getElementById(containerId).innerHTML = "<p>No data found.</p>";
+    if (!Array.isArray(data) || data.length === 0) {
+      target.innerHTML = "<p>No data available.</p>";
       return;
     }
 
-    // Allow filtering (if keys specified in options.columns)
-    const keys = options.columns || Object.keys(data[0]);
+    // Use specified columns or detect automatically
+    const columns = options.columns || Object.keys(data[0]);
 
+    // Build table
     const table = document.createElement("table");
-    table.classList.add("sortable");
+    table.classList.add("sortable", "styled-table");
 
-    // Build header
+    // Header
     const thead = document.createElement("thead");
     const headerRow = document.createElement("tr");
-    keys.forEach(key => {
+    columns.forEach(col => {
       const th = document.createElement("th");
-      th.textContent = key.charAt(0).toUpperCase() + key.slice(1);
-      th.addEventListener("click", () => sortTable(table, key)); // optional if you add sorting
+      th.textContent = col.charAt(0).toUpperCase() + col.slice(1);
       headerRow.appendChild(th);
     });
     thead.appendChild(headerRow);
     table.appendChild(thead);
 
-    // Build body
+    // Body
     const tbody = document.createElement("tbody");
     data.forEach(item => {
-      const row = document.createElement("tr");
-      keys.forEach(key => {
+      const tr = document.createElement("tr");
+      columns.forEach(col => {
         const td = document.createElement("td");
-        td.textContent = item[key];
-        row.appendChild(td);
+        td.textContent = item[col] ?? "";
+        tr.appendChild(td);
       });
-      tbody.appendChild(row);
+      tbody.appendChild(tr);
     });
     table.appendChild(tbody);
 
-    // Insert into container
-    const container = document.getElementById(containerId);
-    container.innerHTML = "";
-    container.appendChild(table);
+    target.innerHTML = "";
+    target.appendChild(table);
+
+    enableTableSorting(table); // Make it sortable
   } catch (err) {
-    console.error("Error loading JSON:", err);
+    console.error(err);
+    target.innerHTML = "<p>Failed to load data.</p>";
   }
 }
 
-// (Optional) very simple sort function
-function sortTable(table, key) {
-  const rows = Array.from(table.querySelectorAll("tbody tr"));
-  const headerCells = Array.from(table.querySelectorAll("th"));
-  const columnIndex = headerCells.findIndex(th => th.textContent.toLowerCase() === key.toLowerCase());
+// Independent sorting for multiple tables
+function enableTableSorting(table) {
+  const headers = table.querySelectorAll("th");
+  headers.forEach((header, index) => {
+    header.addEventListener("click", () => {
+      const tbody = table.querySelector("tbody");
+      const rows = Array.from(tbody.querySelectorAll("tr"));
+      const asc = !header.classList.contains("asc");
 
-  const sorted = rows.sort((a, b) => {
-    const A = a.children[columnIndex].textContent;
-    const B = b.children[columnIndex].textContent;
-    const numA = parseFloat(A.replace(/[^0-9.]/g, ""));
-    const numB = parseFloat(B.replace(/[^0-9.]/g, ""));
-    if (!isNaN(numA) && !isNaN(numB)) return numA - numB;
-    return A.localeCompare(B);
+      headers.forEach(h => h.classList.remove("asc", "desc"));
+      header.classList.toggle("asc", asc);
+      header.classList.toggle("desc", !asc);
+
+      const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
+      rows.sort((a, b) => {
+        const aText = a.children[index].textContent.trim();
+        const bText = b.children[index].textContent.trim();
+        return asc ? collator.compare(aText, bText) : collator.compare(bText, aText);
+      });
+
+      rows.forEach(row => tbody.appendChild(row));
+    });
   });
-
-  const tbody = table.querySelector("tbody");
-  tbody.innerHTML = "";
-  sorted.forEach(row => tbody.appendChild(row));
 }
