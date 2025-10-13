@@ -158,6 +158,49 @@ body{
   border-bottom-right-radius: 8px;
 }
 
+/* Auto-generated JSON table styling */
+table.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.95rem;
+  border: 1px solid #333;
+  background-color: #111;
+  color: #eee;
+}
+
+table.styled-table th,
+table.styled-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+
+table.styled-table tr:nth-child(even) {
+  background-color: #1b1b1b;
+}
+
+table.styled-table tr:hover {
+  background-color: #242424;
+}
+
+table.styled-table th {
+  cursor: pointer;
+  background-color: #222;
+  font-weight: bold;
+  user-select: none;
+}
+
+table.styled-table th.asc::after {
+  content: " ▲";
+  color: #6cf;
+}
+
+table.styled-table th.desc::after {
+  content: " ▼";
+  color: #6cf;
+}
+
 .InfoUnderTable{
   appearance: auto;
   font-size: 1em;
