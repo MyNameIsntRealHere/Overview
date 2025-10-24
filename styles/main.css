@@ -56,14 +56,15 @@ body{
 
 .site-sidebar{
   width: 25vw;
-  padding: 28px;
+  padding: 15px;
   background: var(--bg);
-  border-right: 2px solid #000000;
+  color: white;
+  border-right: 2px solid var(--accent);
 }
 
 .site-sidebar h3{
-  color:#fff;
-  margin-top:0;
+  font-size: 1.5em;
+  margin-bottom: 10px;
 }
 
 .site-sidebar a{
@@ -73,11 +74,20 @@ body{
 
 .site-sidebar ul{
   list-style:none;
-  padding-left:0;
+  padding: 0;
 }
 
-.site-sidebar li{
-  margin:8px 0;
+.site-sidebar ul li{
+  margin: 5px 0;
+}
+
+.site-sidebar ul li a{
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.site-sidebar ul li a:hover{
+  text-decoration: underline;
 }
 
 /*-----MAIN-CONTENT----------------------------------------------------------------------------------------------*/
@@ -95,6 +105,13 @@ body{
   text-align: center;
 }
 
+.PageTTitle{
+  font-size: 30px;
+  margin-top: 35px;
+  margin-left: 10px;
+  color: var(--accent)
+}
+
 .PageText{
   font-size: 25px;
   margin-top: 25px;
@@ -107,6 +124,7 @@ body{
   border-radius: 15px;
   margin-top: 30px;
   padding: 10px 15px;
+  clear: both; /* Ensures it does not overlap with floated elements */
 }
 
 /* Title/summary styling */
@@ -202,10 +220,35 @@ table.styled-table th.desc::after {
 }
 
 .InfoUnderTable{
-  appearance: auto;
-  font-size: 1em;
-  margin-top: 15px;
+  display: block;
+  margin-top: 10px;
   color: rgb(148, 148, 148);
+}
+
+.image-box {
+  background-color: var(--bg);
+  border: 2px solid var(--accent);
+  border-radius: 15px;
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 13px;
+}
+
+.nextto{
+  display: flex;
+  gap: 10px
 }
 
 /*---------------------------------------------------------------------------------------------------------------*/
@@ -221,25 +264,6 @@ table.styled-table th.desc::after {
   margin:12px;
 }
 
-.search-overlay{
-  position:fixed;
-  right:18px;
-  top:70px;
-  width:400px;
-  max-height:70vh;
-  overflow:auto;
-  background:#0b0b0b;
-  border:2px solid var(--accent);
-  padding:12px;
-  border-radius:8px;
-  z-index:50;
-}
-.hidden{display:none}
-
-.sr-list .sr-item{display:block;padding:10px;border-bottom:1px solid #111;color:var(--muted);text-decoration:none}
-.sr-list .sr-item h4{margin:0;color:#fff}
-.sr-list .sr-item p{margin:6px 0 0 0;font-size:0.9rem;color:#cfcfcf}
-
 a {
   color: var(--accent);
   text-decoration: none;
@@ -247,5 +271,40 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+#search-results {
+  position: absolute;
+  background: var(--bg);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  margin-top: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 220px;
+  z-index: 100;
+}
+
+#search-results.hidden {
+  display: none;
+}
+
+.search-result-item {
+  padding: 8px 12px;
+  border-bottom: 1px solid #333;
+}
+
+.search-result-item a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.search-result-item:hover {
+  background: #333;
+}
+
+/* Smooth scrolling for sidebar links */
+html {
+  scroll-behavior: smooth;
 }
 
