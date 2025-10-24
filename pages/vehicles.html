@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Vehicles — Retail Tycoon 2</title>
+  <title>Vehicles | RT2</title>
   <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
@@ -11,20 +11,24 @@
   <div class="page-body">
     <div id="sidebar-target"></div>
     <main id="content" class="main-content">
-      <!----------------------------------STRUCTURE OF THE PAGE---------------------------------->
+      <!----------------------------------STRUCTURE-OF-THE-PAGE---------------------------------->
       <h1 class="PageTitle">Vehicles</h1>
-      <p class="PageText">Vehicles are used to transport goods from the loading bay to your store. You can hire a <a href="deliverydrivers.html">delivery driver</a> to automate this process. Different vehicles have different statistics in capacity, speed and acceleration. You can buy more vehicles at <a href="autoshop.html">Alanz' Auto's</a>.</p>
+      <p class="PageText">Vehicles are used to transport goods from the loading bay to your store or the simply drive or fly around the map. New vehicles can be bought at <a href="alansautos.html">Alan's Autos</a>, located on the street above the loading dock.</p>
       <details class="collapsible-table">
-      <summary>Vehicle overview</summary>
-      <div id="driversTable"></div>
-      <script src="../scripts/table-generator.js"></script>
-      <script>
-        createTableFromJSON("../data/vehicles.json", "driversTable", {
-          columns: ["name", "speed", "capacity"]
-        });
-      </script>
-      <b class="InfoUnderTable">For delivery speed with delivery driver, see <a href="deliverydrivers.html">the delivery drivers page</a></b>
+        <summary>Vehicle overview</summary>
+        <div id="driversTable"></div>
+        <script src="../scripts/table-generator.js"></script>
+        <script>
+          createTableFromJSON("../data/vehicles.json", "driversTable", {
+            columns: ["name", "capacity", "speed", "acceleration", "cost"]
+          });
+        </script>
+        <b class="InfoUnderTable">For delivery speed with delivery driver, see <a href="deliverydrivers.html">the delivery drivers page</a>.</b>
+        <b class="InfoUnderTable">* This vehicle requires a <a href="gamepasses.html">gamepass</a>. Once you bought the needed gamepass you will get this vehicle for free at the start of your save. You can buy more at Alan's Autos for the prices listed in the table.</b>
+        <b class="InfoUnderTable">*** The cybertruck is a reward for beta-players of RT2 and not buyable for other players.</b>
       </details>
+      <p class="PageText">You can hire <a href="deliverydrivers.html">delivery drivers</a> and assign them their own vehicle in order to make the delivery of sellables to your store automatic.</p>
+      <!----------------------------------------------------------------------------------------->
     </main>
   </div>
 

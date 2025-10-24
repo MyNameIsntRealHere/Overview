@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Van | RT2</title>
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+  <div id="header-target"></div>
+  <div class="page-body">
+    <div id="sidebar-target"></div>
+    <main id="content" class="main-content">
+      <!----------------------------------STRUCTURE-OF-THE-PAGE---------------------------------->
+      <h1 class="PageTitle">Van</h1>
+      <div class="nextto">
+        <p class="PageText">You can buy the van and other <a href="vehicles.html">vehicles</a> at <a href="alansautos.html">Alan's Autos</a>, located on the street above the loading bay. See the table below for all this vehicles specs.</p>
+        <div class="image-box">
+          <img src="../images/van.png" alt="Van">
+        </div>
+      </div>
+      <details class="collapsible-table" open>
+        <summary>Van Specs</summary>
+        <div id="driversTable"></div>
+        <script src="../scripts/table-generator.js"></script>
+        <script>
+          createTableFromJSON("../data/vehicles.json", "driversTable", {
+            columns: ["name", "capacity", "speed", "acceleration", "cost", "tiles needed**","delivery speed"],
+            filter: {name: "Van"}
+          });
+        </script>
+        <b class="InfoUnderTable">** You need to have an area of 3x[tiles needed] in front of your unloading dock for your delivery driver to be able to park. This is NOT needed when you don't have a delivery driver.</b>
+      </details>
+      <!----------------------------------------------------------------------------------------->
+    </main>
+  </div>
+
+  <div id="search-results" class="search-overlay hidden"></div>
+
+  <script src="../scripts/include.js"></script>
+  <script src="../scripts/search.js"></script>
+</body>
+</html>
