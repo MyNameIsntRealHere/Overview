@@ -5,10 +5,28 @@ async function createTableFromJSON(jsonPath, targetId, options = {}) {
   try {
     const res = await fetch(jsonPath);
     if (!res.ok) throw new Error(`Failed to load ${jsonPath}`);
-    const data = await res.json();
+    let data = await res.json();
 
     if (!Array.isArray(data) || data.length === 0) {
       target.innerHTML = "<p>No data available.</p>";
+      return;
+    }
+
+    // 🔍 Optional row filtering (supports single or multiple values)
+    if (options.filter && typeof options.filter === "object") {
+      data = data.filter(item => {
+        return Object.entries(options.filter).every(([key, value]) => {
+          if (Array.isArray(value)) {
+            // Example: filter: { name: ["Pickup Truck", "Van"] }
+            return value.includes(item[key]);
+          }
+          return item[key] === value;
+        });
+      });
+    }
+
+    if (data.length === 0) {
+      target.innerHTML = "<p>No matching data found.</p>";
       return;
     }
 
@@ -36,7 +54,18 @@ async function createTableFromJSON(jsonPath, targetId, options = {}) {
       const tr = document.createElement("tr");
       columns.forEach(col => {
         const td = document.createElement("td");
-        td.textContent = item[col] ?? "";
+
+        // Add clickable link if item has "link" field and this is the "name" column
+        if (col === "name" && item.link) {
+          const a = document.createElement("a");
+          a.href = item.link;
+          a.textContent = item[col];
+          a.classList.add("table-link");
+          td.appendChild(a);
+        } else {
+          td.textContent = item[col] ?? "";
+        }
+
         tr.appendChild(td);
       });
       tbody.appendChild(tr);
