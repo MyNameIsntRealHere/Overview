@@ -75,9 +75,15 @@ body{
 
 .main-content{
   flex: 1;
-  padding-top: 2vh;
-  padding-left: 3vw;
-  padding-right: 3vw;
+  text-align: center;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  font-size: 3vw;
+}
+
+.site-footer{
+  text-align: center;
+  padding-top: 20px;
 }
 
 /*-----LINKS---------------------------*/
