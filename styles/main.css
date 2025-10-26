@@ -2,7 +2,9 @@
 
 :root{
   --bg: #222020;
-  --accent: #009DFF;
+  --accent: #ffffff;
+  --RT2blue: #009DFF;
+  --CashCowGreen: #B4E949;
 }
 
 *{box-sizing:border-box}
@@ -13,37 +15,6 @@ body{
   font-family: "Sansation", system-ui, sans-serif;
 }
 
-/*-----HEADER----------------------------------------------------------------------------------------------------*/
-
-.site-header{
-  display: flex;
-  align-items: center;
-  justify-content: normal;
-  padding: 7px 20px;
-  background: #000000;
-  border-bottom: 4px solid var(--accent);
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  height: 7vh;
-}
-
-.site-header .brand{
-  display: flex;
-  align-items: left;
-  width: 25vw;
-  font-size: 33px;
-  border-right: 2px solid var(--bg)
-}
-
-.site-header input{
-  padding:8px 12px;
-  border-radius:6px;
-  border:1px solid #222;
-  background: black;
-  color: var(--accent);
-  min-width: 220px;
-}
 
 /*-----BODY------------------------------------------------------------------------------------------------------*/
 
@@ -51,43 +22,50 @@ body{
   display:flex;
   min-height:calc(100vh - 64px)
 }
-
-/*-----SIDEBAR---------------------------------------------------------------------------------------------------*/
-
-.site-sidebar{
-  width: 25vw;
-  padding: 15px;
-  background: var(--bg);
-  color: white;
-  border-right: 2px solid var(--accent);
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  flex-wrap: wrap;
 }
 
-.site-sidebar h3{
-  font-size: 1.5em;
-  margin-bottom: 10px;
+.box {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
-.site-sidebar a{
-  color:var(--accent);
-  text-decoration:none;
+.blue {
+  border: 5px solid var(--RT2blue);
 }
 
-.site-sidebar ul{
-  list-style:none;
-  padding: 0;
+.green {
+  border: 5px solid var(--CashCowGreen);
 }
 
-.site-sidebar ul li{
-  margin: 5px 0;
+.box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background-color: #000000;
 }
 
-.site-sidebar ul li a{
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.site-sidebar ul li a:hover{
-  text-decoration: underline;
+.box p {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 4px 10px;
+  border-radius: 6px;
 }
 
 /*-----MAIN-CONTENT----------------------------------------------------------------------------------------------*/
