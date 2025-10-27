@@ -61,28 +61,34 @@ body{
 
 .box p {
   position: absolute;
+  top: 10px;
+  left: 50%;
   transform: translateX(-50%);
   font-size: 1.2rem;
   font-weight: 1000;
   color: black;
-  border-radius: 6px;
+  padding: 4px 10px;
 }
 
 /*-----MAIN-CONTENT----------------------------------------------------------------------------------------------*/
 
 .main-content{
+  position: relative;
   flex: 1;
   text-align: center;
 }
 
 .h1{
-  font-size: 2vw;
+  font-size: 3vw;
   padding-top: 3vh;
   padding-bottom: 3vh;
 }
 
 .footers{
-  align-self: baseline;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .site-footer{
