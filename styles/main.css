@@ -23,8 +23,8 @@ body{
 /*-----BODY------------------------------------------------------------------------------------------------------*/
 
 .page-body{
-  display:flex;
-  min-height:calc(100vh - 64px)
+  display: flex;
+  min-height: 100vh;
 }
 .container {
   display: flex;
@@ -79,7 +79,7 @@ body{
 }
 
 .h1{
-  font-size: 3vw;
+  font-size: clamp(1.4rem, 4vw, 3rem);
   padding-top: 3vh;
   padding-bottom: 3vh;
 }
@@ -94,7 +94,11 @@ body{
 .site-footer{
   text-align: center;
   padding-top: 20px;
-  font-size: 1vw;
+  font-size: clamp(1.4rem, 4vw, 3rem);
+}
+
+#last-site-footer{
+  padding-bottom: 20px;
 }
 
 /*-----LINKS---------------------------*/
