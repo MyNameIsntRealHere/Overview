@@ -80,7 +80,7 @@ body{
   text-align: center;
 }
 
-.h1{
+.title{
   font-size: clamp(2rem, 3.2vw, 5rem);
   padding-top: 3vh;
   padding-bottom: 3vh;
@@ -96,7 +96,7 @@ body{
 .site-footer{
   text-align: center;
   padding-top: 20px;
-  font-size: clamp(1.4rem, 4vw, 3rem);
+  font-size: clamp(1rem, 1.8vw, 2rem);
 }
 
 #last-site-footer{
