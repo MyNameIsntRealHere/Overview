@@ -61,13 +61,10 @@ body{
 
 .box p {
   position: absolute;
-  top: 10px;
-  left: 50%;
   transform: translateX(-50%);
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 1000;
   color: black;
-  padding: 4px 10px;
   border-radius: 6px;
 }
 
